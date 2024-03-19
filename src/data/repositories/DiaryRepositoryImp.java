@@ -18,11 +18,16 @@ public class DiaryRepositoryImp implements DiaryRepository{
 
     @Override
     public List<Diary> findAll() {
-        return null;
+        return diaries;
     }
 
     @Override
     public Diary findById(String username) {
+        for(Diary diary: diaries){
+            if(diary.getUsername().equals(username)){
+                return diary;
+            }
+        }
         return null;
     }
 
@@ -32,8 +37,15 @@ public class DiaryRepositoryImp implements DiaryRepository{
     }
 
     @Override
-    public void delete(String username) {
+    public Diary delete(String username) {
+        for (Diary diary : diaries) {
+            if (diary.getUsername().equals(username)) {
+                diaries.remove(username);
+                return diary;
+            }
 
+        }
+        return null;
     }
 
     @Override

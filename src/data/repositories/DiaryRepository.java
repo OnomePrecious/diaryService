@@ -9,7 +9,7 @@ public interface DiaryRepository {
         List<Diary> findAll();
         Diary findById(String username);
         long count();
-        void delete(String username);
+        Diary delete(String username);
         void delete(Diary diary);
 
     }
