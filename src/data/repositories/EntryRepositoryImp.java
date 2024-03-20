@@ -41,6 +41,8 @@ public class EntryRepositoryImp implements EntryRepository {
 
     @Override
     public void delete(int id) {
+        entries.removeIf(entry -> entry.getId()== id);
+
 
     }
 
