@@ -37,18 +37,16 @@ public class DiaryRepositoryImp implements DiaryRepository{
     }
 
     @Override
-    public Diary delete(String username) {
-        for (Diary diary : diaries) {
-            if (diary.getUsername().equals(username)) {
-                diaries.remove(username);
-                return diary;
-            }
-        }
-        return null;
+    public void delete(String username) {
+        diaries.removeIf(diary -> diary.getUsername().equals(username));
     }
 
     @Override
     public void delete(Diary diary) {
+        diaries.remove(diary);
+
 
     }
-}
+
+    }
+

@@ -66,9 +66,17 @@ class DiaryRepositoryTest {
         Diary diary1 = new Diary("username2", "password2");
         repository.save(diary);
         repository.save(diary1);
-        List<Diary> diaries = new ArrayList<>();
-        diaries.add(diary);
-        diaries.add(diary1);
-        assertEquals(diary, repository.delete("username"));
+        repository.delete("username");
+        assertNull(repository.findById("username"));
+    }
+    @Test
+    public void test_deleteByDiary(){
+        DiaryRepository repository = new DiaryRepositoryImp();
+        Diary diary = new Diary("username", "password");
+        repository.save(diary);
+        repository.delete(diary);
+        assertNull(repository.findById("username"));
+
+
     }
 }
