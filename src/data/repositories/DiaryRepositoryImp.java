@@ -43,7 +43,6 @@ public class DiaryRepositoryImp implements DiaryRepository{
                 diaries.remove(username);
                 return diary;
             }
-
         }
         return null;
     }
