@@ -8,9 +8,11 @@ import java.util.List;
 public interface EntryRepository {
     Entry save(Entry entry);
     List<Entry> findAll();
-    Entry findById(String username);
+
+    Entry findById(int id);
+
     long count();
-    void delete(String username);
+    void delete(int id);
     void delete(Entry Entry);
 
 

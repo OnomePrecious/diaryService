@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class EntryRepositoryTest {
 
     @Test
-   public void test_saveEntry() {
+    public void test_saveEntry() {
         EntryRepository repository = new EntryRepositoryImp();
         Entry entry = new Entry(1, "Precious", "The story of my life");
         repository.save(entry);
@@ -21,15 +21,24 @@ class EntryRepositoryTest {
         EntryRepository repository = new EntryRepositoryImp();
         Entry entry = new Entry(1, "Had i known", "Anonymous");
         repository.save(entry);
-        assertEquals(entry, repository.findById("username"));
+        assertEquals(entry, repository.findById(1));
 
-    }
-
-    @Test
-    void delete() {
-    }
-
-    @Test
-    void testDelete() {
     }
 }
+
+//    @Test
+//    public void test_deleteBy() {
+//        EntryRepository repository = new EntryRepositoryImp();
+//        Entry entry = new Entry(1, "Had i known", "Anonymous");
+//        Entry entry1 = new Entry(1, "Precious", "The story of my life");
+//        repository.save(entry);
+//        repository.save(entry1);
+//        repository.delete(1);
+//        assertNull(repository.findById(1));
+//
+//    }
+//
+//    @Test
+//    void testDelete() {
+//    }
+//}

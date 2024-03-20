@@ -1,6 +1,5 @@
 package data.repositories;
 
-import data.model.Diary;
 import data.model.Entry;
 
 import java.util.ArrayList;
@@ -22,10 +21,12 @@ public class EntryRepositoryImp implements EntryRepository {
         return entries;
     }
 
+
+
     @Override
-    public Entry findById(String username) {
+    public Entry findById(int id) {
         for(Entry entry: entries) {
-            if (entry.getId()== count) {
+            if (entry.getId()== id) {
                 return entry;
             }
         }
@@ -39,7 +40,7 @@ public class EntryRepositoryImp implements EntryRepository {
     }
 
     @Override
-    public void delete(String username) {
+    public void delete(int id) {
 
     }
 
