@@ -1,5 +1,6 @@
 package data.repositories;
 
+import data.model.Diary;
 import data.model.Entry;
 import org.junit.jupiter.api.Test;
 
@@ -16,15 +17,12 @@ class EntryRepositoryTest {
     }
 
     @Test
-    void findAll() {
-    }
+    public void test_findById() {
+        EntryRepository repository = new EntryRepositoryImp();
+        Entry entry = new Entry(1, "Had i known", "Anonymous");
+        repository.save(entry);
+        assertEquals(entry, repository.findById("username"));
 
-    @Test
-    void findById() {
-    }
-
-    @Test
-    void count() {
     }
 
     @Test

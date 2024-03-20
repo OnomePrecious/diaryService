@@ -1,5 +1,6 @@
 package data.repositories;
 
+import data.model.Diary;
 import data.model.Entry;
 
 import java.util.ArrayList;
@@ -18,11 +19,17 @@ public class EntryRepositoryImp implements EntryRepository {
 
     @Override
     public List<Entry> findAll() {
-        return null;
+        return entries;
     }
 
     @Override
     public Entry findById(String username) {
+        for(Entry entry: entries) {
+            if (entry.getId()== count) {
+                return entry;
+            }
+        }
+
         return null;
     }
 
