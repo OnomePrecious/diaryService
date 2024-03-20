@@ -38,6 +38,13 @@ class EntryRepositoryTest {
     }
 
     @Test
-   void testDelete() {
-   }
+   public void test_deleteByEntry() {
+        EntryRepository repository = new EntryRepositoryImp();
+        Entry entry = new Entry(1, "Had i known", "Anonymous");
+        repository.save(entry);
+        repository.delete(entry);
+        assertNull(repository.findById(1));
+
+
+    }
 }

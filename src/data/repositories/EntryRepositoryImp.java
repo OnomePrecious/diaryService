@@ -47,7 +47,8 @@ public class EntryRepositoryImp implements EntryRepository {
     }
 
     @Override
-    public void delete(Entry Entry) {
+    public void delete(Entry entry) {
+        entries.remove(entry);
 
     }
 }
