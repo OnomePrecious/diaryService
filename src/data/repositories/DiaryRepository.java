@@ -1,6 +1,7 @@
 package data.repositories;
 
 import data.model.Diary;
+import dtos.LoginRequest;
 
 import java.util.List;
 
@@ -12,4 +13,5 @@ public interface DiaryRepository {
         void delete(String username);
         void delete(Diary diary);
 
-    }
+        void login(LoginRequest request);
+}

@@ -1,6 +1,9 @@
 package data.repositories;
 
 import data.model.Diary;
+import dtos.LoginRequest;
+import dtos.LogoutRequest;
+import exceptions.UserNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +26,13 @@ public class DiaryRepositoryImp implements DiaryRepository{
 
     @Override
     public Diary findById(String username) {
-        for(Diary diary: diaries){
-            if(diary.getUsername().equals(username)){
+        for (Diary diary : diaries) {
+            if (diary.getUsername().equals(username)) {
                 return diary;
-            }
+            }break;
         }
-        return null;
+            throw new UserNotFoundException("not found");
+
     }
 
     @Override
@@ -38,6 +42,7 @@ public class DiaryRepositoryImp implements DiaryRepository{
 
     @Override
     public void delete(String username) {
+
         diaries.removeIf(diary -> diary.getUsername().equals(username));
     }
 
@@ -48,5 +53,12 @@ public class DiaryRepositoryImp implements DiaryRepository{
 
     }
 
+    @Override
+    public void login(LoginRequest loginrequest) {
     }
+
+    public void logout(LogoutRequest logoutRequest) {
+
+    }
+}
 

@@ -1,40 +1,38 @@
 package data.model;
 
-import java.util.Objects;
-
 public class Diary {
-    private boolean isLocked= false;
+    private boolean isLocked = true;
     private String username;
-    private final String password;
+    private String password;
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+public Diary(String username, String password){
+        this.username = username;
+        this.password = password;
+}
+public Diary(){
+
+}
     public String getPassword() {
         return password;
     }
 
-    public Diary(String username, String password) {
-        this.username = username;
+    public void setPassword(String password) {
         this.password = password;
-    }
-    public boolean unLockDiary() {
-        if (Objects.equals(getPassword(), password)) {
-            isLocked = true;
-        }
-        return true;
-    }
-
-    public boolean lockDiary() {
-        if (Objects.equals(getPassword(), password)) {
-            isLocked = true;
-        }
-        return true;
-    }
-
-    public boolean isLocked() {
-        lockDiary();
-        return false;
     }
 
     public String getUsername() {
         return username;
+    }
+
+    public boolean setLocked(boolean status) {
+        this.isLocked = status;
+
+        return status;
+    }
+    public boolean lockStatus(){
+        return isLocked;
     }
 }

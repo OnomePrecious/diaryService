@@ -24,9 +24,9 @@ public class EntryRepositoryImp implements EntryRepository {
 
 
     @Override
-    public Entry findById(int id) {
+    public Entry findById(String id) {
         for(Entry entry: entries) {
-            if (entry.getId()== id) {
+            if (entry.getId() .equals(id)){
                 return entry;
             }
         }
@@ -40,8 +40,8 @@ public class EntryRepositoryImp implements EntryRepository {
     }
 
     @Override
-    public void delete(int id) {
-        entries.removeIf(entry -> entry.getId()== id);
+    public void delete(String id) {
+        entries.removeIf(entry -> entry.getId().equals(id));
 
 
     }
