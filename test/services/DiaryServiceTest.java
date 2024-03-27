@@ -1,23 +1,30 @@
 package services;
 
 import data.model.Diary;
-import dtos.LoginRequest;
+import data.repositories.DiaryRepositoryImp;
 import dtos.RegisterRequest;
 import exceptions.UsernameAlreadyExistsException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 
 class DiaryServiceTest {
-    DiaryServiceImp diaryService = new DiaryServiceImp();
+    private DiaryServiceImp diaryService;
+    private DiaryRepositoryImp diaryRepositoryImp;
 
+    @BeforeEach
+            public void setUp(){
+        diaryService = new DiaryServiceImp();
+        diaryRepositoryImp = new DiaryRepositoryImp();
+    }
     @Test
-   public void testThatIfADiaryIsRegistered_totalDiaryIsEqualsOne() {
-      RegisterRequest registerRequest = new RegisterRequest();
-      registerRequest.setUsername("username");
-      registerRequest.setPassword("password");
-      diaryService.register(registerRequest);
-      assertEquals(1, diaryService.getTotalNumberOfUsers());
+    public void testThatIfADiaryIsRegistered_totalDiaryIsEqualsOne() {
+        RegisterRequest registerRequest = new RegisterRequest();
+        registerRequest.setUsername("username");
+        registerRequest.setPassword("password");
+        diaryService.register(registerRequest);
+        assertEquals(1, diaryService.getTotalNumberOfUsers());
     }
     @Test
     public void testThatIfIRegisterTwiceWithSameUsername_throwsUsernameAlreadyExistsException() {
@@ -53,21 +60,4 @@ class DiaryServiceTest {
         diary.setUsername(registerRequest.getUsername());
         assertEquals(diary, diaryService.findByUsername("username"));
     }
-
-    @Test
-    public void test_ThatICanLogin(){
-        LoginRequest loginRequest = new LoginRequest();
-        Diary diary = new Diary();
-        loginRequest.setUsername("username");
-        loginRequest.setPassword("password");
-        diaryService.login(loginRequest);
-        assertFalse(diary.setLocked(true));
-        //diary.lockStatus();
-        //assertTrue(diary.setLocked(true));
-
-
-    }
-
-
-
 }

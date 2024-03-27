@@ -2,7 +2,6 @@ package data.repositories;
 
 import data.model.Diary;
 import dtos.LoginRequest;
-import dtos.LogoutRequest;
 import exceptions.UserNotFoundException;
 
 import java.util.ArrayList;
@@ -57,7 +56,7 @@ public class DiaryRepositoryImp implements DiaryRepository{
     public void login(LoginRequest loginrequest) {
     }
 
-    public void logout(LogoutRequest logoutRequest) {
+    public void logout(String username) {
 
     }
 }
